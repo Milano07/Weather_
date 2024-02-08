@@ -1,0 +1,34 @@
+.col-sm {
+  font-size: 45px;
+  padding: 0;
+}
+
+.card {
+  margin: 20px;
+  padding: 15px;
+  width: 48rem;
+}
+.fa-regular {
+  font-size: 65px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #f9e178;
+}
+.col-sm-3 {
+  font-size: 30px;
+}
+.fa-solid {
+  font-size: 65px;
+  padding: 15px;
+  color: rgb(106, 103, 187);
+}
+.text {
+  width: 500px;
+}
+.search,
+.current {
+  width: 100px;
+}
+span {
+  font-size: 20px;
+}
