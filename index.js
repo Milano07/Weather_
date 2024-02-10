@@ -25,6 +25,7 @@ let apiKey = "e0a5a97de9a0b7a951e9d154a8f9bad8";
 let APIurl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
 function showTemp(response) {
   console.log(response.data);
+  celsius = response.data.main.temp;
   let outside = Math.round(response.data.main.temp);
   let newfeel = Math.round(response.data.main.feels_like);
   let wind = Math.round(response.data.wind.speed);
@@ -63,20 +64,24 @@ function currentLoc(event) {
 let newLoc = document.querySelector("#current");
 newLoc.addEventListener("click", currentLoc);
 
-function convert() {
+function convert(event) {
+  event.preventDefault();
   let tempC = document.querySelector("div.col-sm");
-  let fake = tempC.innerHTML;
-  let fahrenheit = Math.round((fake * 9) / 5 + 32);
+  let fahrenheit = Math.round((celsius * 9) / 5 + 32);
   tempC.innerHTML = `${fahrenheit}`;
+  temp.classList.remove("active");
+  tempF.classList.add("active");
 }
 let tempF = document.querySelector("#tempF");
 tempF.addEventListener("click", convert);
 
-function convertback() {
+function convertback(event) {
+  event.preventDefault();
   let tempC = document.querySelector("div.col-sm");
-  let fake = tempC.innerHTML;
-  let fakeone = Math.round(((fake - 32) * 5) / 9);
+  let fakeone = Math.round(celsius);
   tempC.innerHTML = `${fakeone}`;
+  tempF.classList.remove("active");
+  temp.classList.add("active");
 }
 let temp = document.querySelector("#temp");
 temp.addEventListener("click", convertback);
