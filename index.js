@@ -21,7 +21,7 @@ if (minutes < 10) {
 
 h2.innerHTML = `${day} ${time}:${minutes}`;
 
-let apiKey = "58a6775f97527351bf6c6966e209be39";
+let apiKey = "e0a5a97de9a0b7a951e9d154a8f9bad8";
 let APIurl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
 function showTemp(response) {
   console.log(response.data);
