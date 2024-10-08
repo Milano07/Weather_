@@ -1,26 +1,3 @@
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let h2 = document.querySelector("h2");
-let now = new Date();
-let day = days[now.getDay()];
-let time = now.getHours();
-if (time < 10) {
-  time = `0${time}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-h2.innerHTML = `${day} ${time}:${minutes}`;
-
 let apiKey = "e0a5a97de9a0b7a951e9d154a8f9bad8";
 let APIurl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
 function showTemp(response) {
@@ -40,6 +17,30 @@ function showTemp(response) {
   feeltemp.innerHTML = `${newfeel}`;
   Wind.innerHTML = `${wind}`;
   Humidity.innerHTML = `${humidity}`;
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let timezone = response.data.timezone;
+  let now = new Date();
+  let localtime = new Date(now.getTime() + timezone * 1000);
+  let day = days[localtime.getDay()];
+  let time = localtime.getUTCHours();
+  if (time < 10) {
+    time = `0${time}`;
+  }
+  let minutes = localtime.getUTCMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let h2 = document.querySelector("h2");
+  h2.innerHTML = `${day} ${time}:${minutes}`;
 }
 
 function city(event) {
