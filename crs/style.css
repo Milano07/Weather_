@@ -35,7 +35,7 @@ p {
 }
 
 .weather {
-  display: block;
+  display: flexbox;
   background: white;
   margin: 50px auto 100px;
   padding: 25px;
